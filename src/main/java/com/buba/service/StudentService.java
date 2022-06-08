@@ -1,0 +1,14 @@
+package com.buba.service;
+
+import com.buba.pojo.Students;
+
+import java.util.List;
+
+public interface StudentService {
+
+    /**
+     * 查询学生列表
+     * @return
+     */
+    List<Students> listStudent();
+}

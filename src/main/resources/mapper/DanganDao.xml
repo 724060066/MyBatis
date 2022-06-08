@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.dao.DanganDao">
+
+    <resultMap id="danganAndStudent" type="Dangan" autoMapping="true">
+<!--        <association property="students" javaType="Students" autoMapping="true">-->
+<!--            <id column="sId" property="id"></id>-->
+<!--            <result column="sPhone" property="phone"></result>-->
+<!--        </association>-->
+        <association property="students"
+                     javaType="Students"
+        select="com.buba.dao.StudentDao.getStudentByDanganId" column="id">
+        </association>
+    </resultMap>
+
+<!--    <select id="listDangan" resultMap="danganAndStudent">-->
+<!--        select d.*,-->
+<!--               s.id sId,-->
+<!--               s.studentCode,-->
+<!--               s.studentName,-->
+<!--               s.age,-->
+<!--               s.sex,-->
+<!--               s.phone sPhone-->
+<!--        from students s-->
+<!--        right join-->
+<!--             dangan d-->
+<!--             on d.id = s.danganId-->
+<!--    </select>-->
+
+    <select id="listDangan" resultMap="danganAndStudent">
+        select * from dangan
+    </select>
+
+    <select id="getDanganById" resultType="Dangan">
+        select * from dangan where id = #{id}
+    </select>
+</mapper>
