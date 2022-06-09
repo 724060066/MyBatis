@@ -13,19 +13,23 @@
         <th>性别</th>
         <th>年龄</th>
         <th>电话</th>
-        <th>班级</th>
+        <th>市场部</th>
+        <th>籍贯</th>
+        <th>民族</th>
     </tr>
-    <c:forEach items="${studentsList}" var="dangan">
+    <c:forEach items="${studentsList}" var="student">
         <tr>
-            <td>${dangan.studentCode}</td>
-            <td>${dangan.studentName}</td>
+            <td>${student.studentCode}</td>
+            <td>${student.studentName}</td>
             <td>
-                <c:if test="${dangan.sex == '1'}">男</c:if>
-                <c:if test="${dangan.sex == '2'}">女</c:if>
+                <c:if test="${student.sex == '1'}">男</c:if>
+                <c:if test="${student.sex == '2'}">女</c:if>
             </td>
-            <td>${dangan.age}</td>
-            <td>${dangan.phone}</td>
-            <td>2108A</td>
+            <td>${student.age}</td>
+            <td>${student.phone}</td>
+            <td>${student.dangan.shichangbu}</td>
+            <td>${student.dangan.jiguan}</td>
+            <td>${student.dangan.minzu}</td>
         </tr>
     </c:forEach>
 </table>

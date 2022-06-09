@@ -17,19 +17,19 @@
         <th>年龄</th>
         <th>电话</th>
     </tr>
-    <c:forEach items="${danganList}" var="dangan">
+    <c:forEach items="${danganList}" var="student">
         <tr>
-            <td>${dangan.shichangbu}</td>
-            <td>${dangan.jiguan}</td>
-            <td>${dangan.minzu}</td>
-            <td>${dangan.students.studentCode}</td>
-            <td>${dangan.students.studentName}</td>
+            <td>${student.shichangbu}</td>
+            <td>${student.jiguan}</td>
+            <td>${student.minzu}</td>
+            <td>${student.students.studentCode}</td>
+            <td>${student.students.studentName}</td>
             <td>
-                <c:if test="${dangan.students.sex == '1'}">男</c:if>
-                <c:if test="${dangan.students.sex == '2'}">女</c:if>
+                <c:if test="${student.students.sex == '1'}">男</c:if>
+                <c:if test="${student.students.sex == '2'}">女</c:if>
             </td>
-            <td>${dangan.students.age}</td>
-            <td>${dangan.students.phone}</td>
+            <td>${student.students.age}</td>
+            <td>${student.students.phone}</td>
 
         </tr>
     </c:forEach>
