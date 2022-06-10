@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buba.dao.ClassDao">
+<!--    一对多映射：
+        使用collection；
+        javaType和ofType：
+            一对一使用javaType，一对多使用ofType
+-->
+    <resultMap id="classAndStudent" type="Classes" autoMapping="true">
+        <id column="cid" property="id"></id>
+        <collection property="studentsList" ofType="Students" autoMapping="true">
+<!--            <id column="id" property="id"></id>-->
+<!--            <result column="studentName" property="studentName"></result>-->
+        </collection>
+    </resultMap>
+
+    <select id="listClasses" resultMap="classAndStudent">
+        SELECT
+            c.id cid,
+            c.className,
+            s.*
+        FROM
+            classes c
+            left join students s
+            on s.classId = c.id
+    </select>
+
+</mapper>

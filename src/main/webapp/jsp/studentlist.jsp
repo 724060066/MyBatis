@@ -8,6 +8,7 @@
 <body>
 <table>
     <tr>
+        <th>班级</th>
         <th>学号</th>
         <th>姓名</th>
         <th>性别</th>
@@ -19,6 +20,7 @@
     </tr>
     <c:forEach items="${studentsList}" var="student">
         <tr>
+            <td>${student.classes.className}</td>
             <td>${student.studentCode}</td>
             <td>${student.studentName}</td>
             <td>
