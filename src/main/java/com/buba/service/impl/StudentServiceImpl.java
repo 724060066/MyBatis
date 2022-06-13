@@ -23,11 +23,12 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 查询学生列表
+     * @param studentName
+     * @param classId
      * @return
      */
-    @Override
-    public List<Students> listStudent() {
-        List<Students> studentsList = studentDao.listStudent();
+    public List<Students> listStudent(String studentName, String classId) {
+        List<Students> studentsList = studentDao.listStudent(studentName, classId);
         return studentsList;
     }
 }

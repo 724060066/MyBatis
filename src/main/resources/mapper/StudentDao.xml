@@ -45,6 +45,14 @@
                            on s.danganId = d.id
                  left join classes c
                            on c.id = s.classId
+            <where>
+                <if test="studentName != null and studentName != ''">
+                    and s.studentName like concat('%',#{studentName},'%')
+                </if>
+                <if test="classId !=null and classId != ''">
+                    and s.classId = #{classId}
+                </if>
+            </where>
         </select>
 
 <!--    第三种方式：嵌套查询-start-

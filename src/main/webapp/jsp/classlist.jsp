@@ -12,9 +12,9 @@
         <th>学生姓名</th>
     </tr>
     <c:forEach items="${classesList}" var="classes">
+        <c:forEach items="${classes.studentsList}" var="student">
         <tr>
             <td>${classes.className}</td>
-            <c:forEach items="${classes.studentsList}" var="student">
                 <td>${student.studentCode}</td>
                 <td>${student.studentName}</td>
                 <td>${student.age}</td>
@@ -23,8 +23,8 @@
                     <c:if test="${student.sex == '2'}">女</c:if>
                 </td>
                 <td>${student.phone}</td>
-            </c:forEach>
         </tr>
+        </c:forEach>
     </c:forEach>
 </table>
 </body>

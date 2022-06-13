@@ -8,7 +8,9 @@ public interface StudentService {
 
     /**
      * 查询学生列表
+     * @param studentName
+     * @param classId
      * @return
      */
-    List<Students> listStudent();
+    List<Students> listStudent(String studentName, String classId);
 }

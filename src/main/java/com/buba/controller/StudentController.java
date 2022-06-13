@@ -1,6 +1,8 @@
 package com.buba.controller;
 
+import com.buba.pojo.Classes;
 import com.buba.pojo.Students;
+import com.buba.service.ClassService;
 import com.buba.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,15 +26,22 @@ public class StudentController {
     @Qualifier("studentService")
     private StudentService studentService;
 
+    @Autowired
+    @Qualifier("classServcie")
+    private ClassService classService;
+
     /**
      * 查询学生列表
      * @param model
      * @return
      */
     @RequestMapping("/listStudent")
-    public String listStudent(Model model){
-        List<Students> studentsList = studentService.listStudent();
+    public String listStudent(Model model, String studentName, String classId){
+        List<Students> studentsList = studentService.listStudent(studentName, classId);
+        List<Classes> classesList = classService.listClasses();
         model.addAttribute("studentsList", studentsList);
+        model.addAttribute("classesList", classesList);
+        model.addAttribute("studentName", studentName);
         return "studentlist";
     }
 }
