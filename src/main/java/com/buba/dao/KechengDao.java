@@ -12,4 +12,6 @@ public interface KechengDao {
      * @return
      */
     List<Kecheng> listKechengByClassId(String cId);
+
+    List<Kecheng> listKechengAndClass();
 }

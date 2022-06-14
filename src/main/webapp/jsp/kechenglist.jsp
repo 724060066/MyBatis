@@ -8,13 +8,13 @@
 <body>
 <table>
     <tr>
+        <th>学生行名</th>
+        <th>学号</th>
+        <th>市场部</th>
+        <th>籍贯</th>
+        <th>班级名</th>
         <th>课程名</th>
     </tr>
-    <c:forEach items="${kechengList}" var="kecheng">
-        <tr>
-            <td>${kecheng.keName}</td>
-        </tr>
-    </c:forEach>
 </table>
 </body>
 </html>

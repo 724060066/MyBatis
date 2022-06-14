@@ -26,6 +26,6 @@ public class KechengServiceImpl implements KechengService {
      * @return
      */
     public List<Kecheng> listKechengByClassId(String cId) {
-        return kechengDao.listKechengByClassId(cId);
+        return kechengDao.listKechengAndClass();
     }
 }

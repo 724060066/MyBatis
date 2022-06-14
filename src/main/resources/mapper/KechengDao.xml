@@ -3,10 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.buba.dao.KechengDao">
 
-<!--    <resultMap id="kechengAndClass" type="">-->
-
-<!--    </resultMap>-->
-
     <select id="listKechengByClassId" resultType="Kecheng">
         SELECT
             k.*
@@ -16,5 +12,31 @@
         WHERE
             s.kId = k.id
           AND s.classId = #{cId}
+    </select>
+
+    <resultMap id="kechengAndClass" type="Kecheng" autoMapping="true">
+        <collection property="classesList" ofType="Classes" autoMapping="true">
+            <id column="cid" property="id"></id>
+        </collection>
+    </resultMap>
+
+    <select id="listKechengAndClass" resultMap="kechengAndClass">
+        SELECT
+            c.id cid,
+            c.className ,
+            k.*
+        FROM
+            classes c
+            LEFT JOIN study s ON c.id = s.classId
+            LEFT JOIN kecheng k ON k.id = s.kId
+        UNION
+        SELECT
+            c.id cid,
+            c.className ,
+            k.*
+        FROM
+            kecheng k
+            LEFT JOIN study s ON k.id = s.kId
+            LEFT JOIN classes c ON c.id = s.classId
     </select>
 </mapper>
