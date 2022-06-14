@@ -10,8 +10,8 @@
     姓名：<input type="text" name="studentName" value="${studentName}">
     班级:<select name="classId">
             <option value="">--请选择--</option>
-            <c:forEach items="${classesList}" var="classes">
-                <option value="${classes.id}">${classes.className}</option>
+            <c:forEach items="${classesList}" var="kecheng">
+                <option value="${kecheng.id}">${kecheng.className}</option>
             </c:forEach>
         </select>
     <button type="submit">查询</button>

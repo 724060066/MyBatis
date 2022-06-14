@@ -1,11 +1,22 @@
 package com.buba.pojo;
 
 
+import java.util.List;
+
 public class Kecheng {
 
   private long id;
-  private String kName;
+  private String keName;
 
+  private List<Classes> classesList;
+
+  public List<Classes> getClassesList() {
+    return classesList;
+  }
+
+  public void setClassesList(List<Classes> classesList) {
+    this.classesList = classesList;
+  }
 
   public long getId() {
     return id;
@@ -15,13 +26,11 @@ public class Kecheng {
     this.id = id;
   }
 
-
-  public String getKName() {
-    return kName;
+  public String getKeName() {
+    return keName;
   }
 
-  public void setKName(String kName) {
-    this.kName = kName;
+  public void setKeName(String keName) {
+    this.keName = keName;
   }
-
 }

@@ -11,6 +11,16 @@ public class Classes {
 
   private List<Students> studentsList;
 
+  private List<Kecheng> kechengList;
+
+  public List<Kecheng> getKechengList() {
+    return kechengList;
+  }
+
+  public void setKechengList(List<Kecheng> kechengList) {
+    this.kechengList = kechengList;
+  }
+
   public List<Students> getStudentsList() {
     return studentsList;
   }
