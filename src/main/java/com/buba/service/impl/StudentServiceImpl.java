@@ -1,6 +1,8 @@
 package com.buba.service.impl;
 
+import com.buba.dao.DanganDao;
 import com.buba.dao.StudentDao;
+import com.buba.pojo.Dangan;
 import com.buba.pojo.Students;
 import com.buba.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentDao studentDao;
+    @Autowired
+    private DanganDao danganDao;
 
     /**
      * 查询学生列表
@@ -40,4 +44,18 @@ public class StudentServiceImpl implements StudentService {
         List<Students> studentsList = studentDao.listStudentsInfo();
         return studentsList;
     };
+
+    /**
+     * 添加学生信息
+     * @param students
+     */
+    public void insertStudent(Students students) {
+        Dangan dangan = students.getDangan();
+        danganDao.insertDangan(dangan);
+
+        students.setDanganId(dangan.getId());
+
+        studentDao.insertStudent(students);
+    }
+
 }

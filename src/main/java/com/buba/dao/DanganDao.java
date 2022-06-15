@@ -19,4 +19,11 @@ public interface DanganDao {
     List<Dangan> listDangan();
 
     Dangan getDanganById(String id);
+
+    /**
+     * 添加学生信息
+     * @param dangan
+     * @return
+     */
+    int insertDangan(Dangan dangan);
 }

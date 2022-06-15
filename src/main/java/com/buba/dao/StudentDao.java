@@ -1,5 +1,6 @@
 package com.buba.dao;
 
+import com.buba.pojo.Dangan;
 import com.buba.pojo.Students;
 import org.apache.ibatis.annotations.Param;
 
@@ -26,4 +27,6 @@ public interface StudentDao {
      * @return
      */
     List<Students> listStudentsInfo();
+
+    int insertStudent(Students students);
 }

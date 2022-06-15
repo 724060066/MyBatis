@@ -35,4 +35,14 @@
     <select id="getDanganById" resultType="Dangan">
         select * from dangan where id = #{id}
     </select>
+
+<!--    useGeneratedKeys:
+            返回insert新生成的主键
+            true/false 默认为false
+        keyProperty：将新生成的主键set到指定的pojo属性里
+        keyColumn：表里主键的列名
+-->
+    <insert id="insertDangan" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into dangan(shichangbu) values (#{shichangbu})
+    </insert>
 </mapper>

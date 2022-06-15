@@ -95,4 +95,5 @@
             LEFT JOIN kecheng k ON k.id = st.kId
         order by s.studentCode
     </select>
+
 </mapper>

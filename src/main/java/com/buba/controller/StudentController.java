@@ -1,6 +1,7 @@
 package com.buba.controller;
 
 import com.buba.pojo.Classes;
+import com.buba.pojo.Dangan;
 import com.buba.pojo.Students;
 import com.buba.service.ClassService;
 import com.buba.service.StudentService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -56,4 +58,16 @@ public class StudentController {
         model.addAttribute("studentsList", studentsList);
         return "studentinfolist";
     }
+
+    /**
+     * 添加学生信息
+     * @param students
+     * @return
+     */
+    @RequestMapping("/insertStudent")
+    public String insertStudent(Students students) {
+        studentService.insertStudent(students);
+        return null;
+    }
+
 }

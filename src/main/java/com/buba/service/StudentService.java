@@ -1,5 +1,6 @@
 package com.buba.service;
 
+import com.buba.pojo.Dangan;
 import com.buba.pojo.Students;
 
 import java.util.List;
@@ -19,4 +20,11 @@ public interface StudentService {
      * @return
      */
     List<Students> listStudentsInfo();
+
+    /**
+     * 添加学生信息
+     * @param students
+     */
+    void insertStudent(Students students);
+
 }
