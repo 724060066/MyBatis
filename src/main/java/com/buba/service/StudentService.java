@@ -13,4 +13,10 @@ public interface StudentService {
      * @return
      */
     List<Students> listStudent(String studentName, String classId);
+
+    /**
+     * 查询学生所有信息
+     * @return
+     */
+    List<Students> listStudentsInfo();
 }

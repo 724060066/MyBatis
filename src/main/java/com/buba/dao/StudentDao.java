@@ -20,4 +20,10 @@ public interface StudentDao {
      * @return
      */
     Students getStudentByDanganId(String dId);
+
+    /**
+     * 查询学生所有信息
+     * @return
+     */
+    List<Students> listStudentsInfo();
 }

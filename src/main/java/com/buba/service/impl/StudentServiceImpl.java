@@ -31,4 +31,13 @@ public class StudentServiceImpl implements StudentService {
         List<Students> studentsList = studentDao.listStudent(studentName, classId);
         return studentsList;
     }
+
+    /**
+     * 查询学生所有信息
+     * @return
+     */
+    public List<Students> listStudentsInfo(){
+        List<Students> studentsList = studentDao.listStudentsInfo();
+        return studentsList;
+    };
 }

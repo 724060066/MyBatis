@@ -72,4 +72,27 @@
 <!--    </select>-->
 <!--    第三种方式：嵌套查询-end- -->
 
+    <resultMap id="studentsInfo" type="Students" autoMapping="true">
+        <association property="dangan" javaType="Dangan" autoMapping="true"></association>
+        <association property="classes" javaType="Classes" autoMapping="true">
+            <collection property="kechengList" ofType="Kecheng" autoMapping="true"></collection>
+        </association>
+    </resultMap>
+
+    <select id="listStudentsInfo" resultMap="studentsInfo">
+        SELECT
+            s.studentCode ,
+            s.studentName ,
+            d.shichangbu ,
+            d.jiguan ,
+            c.className ,
+            k.keName
+        FROM
+            students s
+            LEFT JOIN dangan d ON s.danganId = d.id
+            LEFT JOIN classes c ON c.id = s.classId
+            LEFT JOIN study st ON c.id = st.classId
+            LEFT JOIN kecheng k ON k.id = st.kId
+        order by s.studentCode
+    </select>
 </mapper>

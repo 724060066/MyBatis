@@ -44,4 +44,16 @@ public class StudentController {
         model.addAttribute("studentName", studentName);
         return "studentlist";
     }
+
+    /**
+     * 查询学生所有信息
+     * @param model
+     * @return
+     */
+    @RequestMapping("/listStudentsInfo")
+    public String listStudentsInfo(Model model) {
+        List<Students> studentsList = studentService.listStudentsInfo();
+        model.addAttribute("studentsList", studentsList);
+        return "studentinfolist";
+    }
 }
