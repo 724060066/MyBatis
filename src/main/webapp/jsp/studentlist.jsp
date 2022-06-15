@@ -15,6 +15,7 @@
             </c:forEach>
         </select>
     <button type="submit">查询</button>
+    <a href="${pageContext.request.contextPath }/jsp/addstudent.jsp">添加学生信息</a>
 </form>
 <table>
     <tr>
