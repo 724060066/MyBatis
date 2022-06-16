@@ -25,6 +25,6 @@ public interface StudentService {
      * 添加学生信息
      * @param students
      */
-    void insertStudent(Students students);
+    void addStudent(Students students);
 
 }

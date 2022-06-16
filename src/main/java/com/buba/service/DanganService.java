@@ -11,4 +11,11 @@ public interface DanganService {
      * @return
      */
     List<Dangan> listDangan();
+
+    /**
+     * 添加学生信息
+     * @param dangan
+     * @return
+     */
+    void insertDangan(Dangan dangan);
 }

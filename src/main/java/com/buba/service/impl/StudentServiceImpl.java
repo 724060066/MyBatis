@@ -4,8 +4,10 @@ import com.buba.dao.DanganDao;
 import com.buba.dao.StudentDao;
 import com.buba.pojo.Dangan;
 import com.buba.pojo.Students;
+import com.buba.service.DanganService;
 import com.buba.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.security.sasl.SaslServer;
@@ -24,6 +26,10 @@ public class StudentServiceImpl implements StudentService {
     private StudentDao studentDao;
     @Autowired
     private DanganDao danganDao;
+
+    @Autowired
+    @Qualifier("danganService")
+    private DanganService danganService;
 
     /**
      * 查询学生列表
@@ -49,9 +55,9 @@ public class StudentServiceImpl implements StudentService {
      * 添加学生信息
      * @param students
      */
-    public void insertStudent(Students students) {
+    public void addStudent(Students students) {
         Dangan dangan = students.getDangan();
-        danganDao.insertDangan(dangan);
+        danganService.insertDangan(dangan);
 
         students.setDanganId(dangan.getId());
 

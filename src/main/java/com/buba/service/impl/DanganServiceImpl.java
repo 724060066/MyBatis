@@ -28,4 +28,15 @@ public class DanganServiceImpl implements DanganService {
     public List<Dangan> listDangan(){
         return danganDao.listDangan();
     }
+
+    /**
+     * 添加学生信息
+     * @param dangan
+     * @return
+     */
+    public void insertDangan(Dangan dangan){
+        danganDao.insertDangan(dangan);
+        danganDao.insertDangan(dangan);
+    }
+
 }

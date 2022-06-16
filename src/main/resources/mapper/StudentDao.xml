@@ -96,4 +96,8 @@
         order by s.studentCode
     </select>
 
+    <insert id="insertStudent">
+        insert into students(studentCode,danganId) values(#{studentCode},#{danganId})
+    </insert>
+
 </mapper>
